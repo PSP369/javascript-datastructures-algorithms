@@ -22,3 +22,21 @@ console.log(int16);
 
 // http://www.html5rocks.com/en/tutorials/webgl/typed_arrays/
 // http://www.i-programmer.info/programming/javascript/6135-javascript-data-structures-typed-arrays.html
+
+const fruits = ["apple", "banana", "orange"];
+let mysteryFruit = fruits[Math.floor(Math.random() * fruits.length)];
+
+let guessCount = 0;
+
+let guess = prompt("Guess a fruit (you have 3 tries");
+
+while (guess.toLocaleLowerCase() !== mysteryFruit && guessCount < 3) {
+  guessCount++;
+  guess = prompt(`Nope, try again. you have ${3 - guessCount} tries left.`);
+}
+
+if (guess.toLocaleLowerCase() === mysteryFruit) {
+  alert(`Congratulations! you guessed the mystery fruit in ${guessCount + 1} tries`);
+} else {
+  alert(`Sorry you ran out of tires. The mystery fruit was ${mysteryFruit}.`);
+}
